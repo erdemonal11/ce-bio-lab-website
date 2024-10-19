@@ -1,6 +1,6 @@
 /* Main container for Contact Page */
 .contact-container {
-  max-width: 1000px; /* Increased total width for the container */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
   background-color: white;
@@ -20,13 +20,13 @@ h1 {
 .contact-details {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap; /* Ensure the items don't wrap to the next line */
+  flex-wrap: wrap; /* Allow wrapping of items for smaller screens */
   gap: 20px; /* Adds space between each contact */
 }
 
 /* Contact card styling */
 .contact-person {
-  width: 45%; /* Keeping the original width */
+  width: 45%; /* Keep this width for larger screens */
   background-color: #f7f7f7;
   padding: 20px;
   border-radius: 8px;
@@ -43,14 +43,13 @@ h1 {
   color: #003366;
   font-size: 22px;
   margin-bottom: 10px;
-  text-align: left; /* Ensure the name is left-aligned */
+  text-align: left;
 }
 
 .contact-person p {
   color: #555;
   font-size: 16px;
   margin-bottom: 8px;
-  text-align: left; /* Ensure text is left-aligned */
 }
 
 .contact-person a {
@@ -81,4 +80,17 @@ h1 {
   border: 0;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  /* Make contact persons stack vertically */
+  .contact-details {
+    flex-direction: column;
+    gap: 20px; /* Adds vertical space between the stacked cards */
+  }
+
+  .contact-person {
+    width: 100%; /* Ensure the contact card takes full width on smaller screens */
+  }
 }
