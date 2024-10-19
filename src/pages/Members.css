@@ -1,0 +1,77 @@
+/* Main container for Members Page */
+.members-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styling */
+  h1 {
+    color: #003366;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Members list styling */
+  .members-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Individual member card */
+  .member {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Image styling */
+  .member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #003366;
+  }
+  
+  /* Member info styling */
+  .member-info h3 {
+    font-size: 20px;
+    color: #003366;
+    margin-bottom: 10px;
+  }
+  
+  .member-info p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Hover effect for member cards */
+  .member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 768px) {
+    .members-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .member img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+  

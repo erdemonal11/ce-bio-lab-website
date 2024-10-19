@@ -1,0 +1,102 @@
+/* Main container for Alumni Page */
+.alumni-container {
+    max-width: 1200px; /* Wider container for more spacing */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styling */
+  h1, h2 {
+    color: #003366;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* PhD Graduates section */
+  .phd-graduates {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Smaller minimum width */
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  /* Individual PhD graduate card */
+  .phd-graduate {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Hover effect */
+  }
+  
+  /* Image styling */
+  .phd-graduate img {
+    width: 120px; /* Smaller image */
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #003366;
+  }
+  
+  /* Info styling */
+  .graduate-info h3 {
+    font-size: 18px;
+    color: #003366;
+    margin-bottom: 8px;
+  }
+  
+  .graduate-info p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  /* Hover effect for cards */
+  .phd-graduate:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12); /* Softer shadow */
+  }
+  
+  /* M.Sc. Graduates section */
+  .msc-graduates {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .msc-graduates ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .msc-graduates li {
+    font-size: 18px;
+    color: #003366;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive design for mobile */
+  @media (max-width: 768px) {
+    .phd-graduates {
+      grid-template-columns: 1fr; /* Stack the items on small screens */
+    }
+  
+    .phd-graduate img {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .graduate-info h3 {
+      font-size: 16px;
+    }
+  
+    .graduate-info p {
+      font-size: 14px;
+    }
+  }
+  
