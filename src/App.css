@@ -10,11 +10,6 @@ body, html {
   box-sizing: border-box;
 }
 
-.page-container {
-  padding: 30px;
-  margin-top: 0; /* Remove any default margins */
-}
-
 body {
   overflow-x: hidden;
 }
@@ -30,6 +25,25 @@ main {
   flex-grow: 1;
   padding-top: 20px; /* Adjust this value based on your header height */
   margin: 0;
+}
+
+/* Add padding for responsive view */
+.page-container {
+  padding: 30px;
+  margin-top: 0; /* Remove any default margins */
+}
+
+/* Responsive padding for smaller screens */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 20px 15px; /* Reduce padding for medium screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 15px 10px; /* Further reduce padding for small screens */
+  }
 }
 
 /* Sticky Header */
