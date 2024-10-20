@@ -1,154 +1,187 @@
 /* General Page Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f8f8;
-  }
-  
-  h1, h2 {
-    margin: 0;
-    padding: 0;
-  }
-  
-  /* Flex container for Home Page */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f8f8;
+}
+
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Flex container for Home Page */
+.home-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  background-color: #f0f8f8;
+  padding: 30px 0;
+}
+
+/* Main content area */
+.main-content {
+  width: 65%;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+  color: #004d40;
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Content wrapper for image and paragraphs */
+.content-wrapper {
+  display: flex;
+  gap: 20px; /* Space between image and text */
+  align-items: flex-start; /* Ensure text and image start at the same level */
+}
+
+/* Ensure image scales dynamically with text */
+.welcome-image {
+  width: 100%;
+  height: auto; /* Ensure the image scales naturally */
+  max-width: 300px; /* Restrict image from growing too large */
+  flex-shrink: 0;
+}
+
+/* Text content section */
+.text-content {
+  flex-grow: 1; /* Ensure the text grows to fill available space */
+}
+
+.text-content p {
+  color: #333333;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 10px; /* Reduced space between paragraphs */
+}
+
+/* Sidebar for latest news */
+.sidebar {
+  width: 30%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Matching shadow */
+  max-height: 500px;
+  overflow-y: auto; /* Make the sidebar scrollable */
+}
+
+/* Custom Scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 12px; /* Slightly wider scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #004d40;
+  border-radius: 6px;
+  border: 3px solid #ffffff;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background-color: #e0f7fa;
+  border-radius: 6px;
+}
+
+/* Sidebar header */
+.sidebar h2 {
+  color: #004d40;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* News feed styling */
+.news-feed {
+  font-size: 16px;
+  color: #333333;
+}
+
+.news-feed p {
+  margin-bottom: 15px;
+}
+
+.news-feed p strong {
+  color: #004d40;
+}
+
+/* Enhanced link styling */
+.news-feed a {
+  color: #00796b;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+}
+
+.news-feed a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #00796b;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.news-feed a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.news-feed a:hover {
+  color: #00796b;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .home-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 30px;
-    background-color: #f0f8f8; /* Light blue-green background */
+    flex-direction: column;
+    align-items: center;
   }
-  
-  /* Main content area */
-  .main-content {
-    width: 65%;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    margin-right: 20px; /* Space between the main content and sidebar */
+
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .main-content h1 {
-    color: #004d40; /* Dark green for headers */
-    font-size: 36px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 700;
-  }
-  
-  .main-content p {
-    color: #333333;
-    font-size: 18px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-  
-  /* Sidebar for latest news */
-  .sidebar {
-    width: 30%;
-    background-color: #ffffff; /* White background like Welcome section */
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Matching shadow */
-    max-height: 500px; /* Ensuring the sidebar doesn't overflow too much */
-    overflow-y: auto; /* Make the sidebar scrollable */
-  }
-  
-  /* Custom Scrollbar */
-  .sidebar::-webkit-scrollbar {
-    width: 12px; /* Slightly wider scrollbar */
-  }
-  
-  .sidebar::-webkit-scrollbar-thumb {
-    background-color: #004d40; /* Dark green for scrollbar thumb */
-    border-radius: 6px;
-    border: 3px solid #ffffff; /* White border for cleaner look */
-  }
-  
-  .sidebar::-webkit-scrollbar-track {
-    background-color: #e0f7fa; /* Light teal for the track */
-    border-radius: 6px;
-  }
-  
-  /* Sidebar header */
-  .sidebar h2 {
-    color: #004d40; /* Dark green for consistency */
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  /* News feed styling */
-  .news-feed {
-    font-size: 16px;
-    color: #333333; /* Dark text for readability */
-  }
-  
-  .news-feed p {
+
+  .welcome-image {
+    width: 100%;
+    max-width: none;
     margin-bottom: 15px;
   }
-  
-  .news-feed p strong {
-    color: #004d40; /* Dark green for highlighted text like dates */
-  }
-  
-  /* Enhanced link styling */
-  .news-feed a {
-    color: #00796b; /* Teal color for links to make them stand out */
-    font-weight: bold;
-    text-decoration: none;
-    position: relative;
-  }
-  
-  .news-feed a::before {
-    content: "";
-    position: absolute;
+
+  .text-content {
     width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #00796b;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
   }
-  
-  .news-feed a:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
+
+  .main-content, .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
   }
-  
-  .news-feed a:hover {
-    color: #004d40; /* Dark green on hover */
+
+  .main-content {
+    padding: 20px;
   }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .home-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .main-content, .sidebar {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
-  
-    .main-content {
-      padding: 20px; /* Slightly less padding on small screens */
-    }
+}
+
+@media (max-width: 480px) {
+  .main-content h1 {
+    font-size: 28px;
   }
-  
-  @media (max-width: 480px) {
-    .main-content h1 {
-      font-size: 28px; /* Slightly smaller for smaller screens */
-    }
-  
-    .sidebar h2 {
-      font-size: 20px; /* Adjust sidebar header size */
-    }
+
+  .sidebar h2 {
+    font-size: 20px;
   }
-  
+}

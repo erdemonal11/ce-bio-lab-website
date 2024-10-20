@@ -21,16 +21,16 @@ h1 {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; /* Allow wrapping of items for smaller screens */
-  gap: 20px; /* Adds space between each contact */
+  gap: 5px; /* Reduced space between each contact */
 }
 
 /* Contact card styling */
 .contact-person {
-  width: 45%; /* Keep this width for larger screens */
+  width: 47%; /* Adjusted to allow for narrower gap */
   background-color: #f7f7f7;
-  padding: 20px;
+  padding: 15px; /* Reduced padding to bring content closer */
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* Reduced margin between the cards */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   text-align: left; /* Align content to the left */
   display: flex;
@@ -87,7 +87,7 @@ h1 {
   /* Make contact persons stack vertically */
   .contact-details {
     flex-direction: column;
-    gap: 20px; /* Adds vertical space between the stacked cards */
+    gap: 15px; /* Reduced vertical space between the stacked cards */
   }
 
   .contact-person {

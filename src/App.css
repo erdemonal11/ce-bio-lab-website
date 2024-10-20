@@ -1,28 +1,35 @@
 /* General Reset */
 * {
-  box-sizing: border-box; /* Ensures padding and borders are included in the total element width/height */
+  box-sizing: border-box;
 }
 
-html, body {
+/* Additional reset styles for consistency */
+body, html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.page-container {
+  padding: 30px;
+  margin-top: 0; /* Remove any default margins */
 }
 
 body {
-  overflow-x: hidden; /* Ensures no horizontal scrollbars appear */
+  overflow-x: hidden;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 70px; /* Add padding to avoid content being hidden by fixed header */
+  padding-top: 70px;
 }
 
 main {
-  flex-grow: 1; /* Ensures the main content grows to fill available space */
+  flex-grow: 1;
+  padding-top: 20px; /* Adjust this value based on your header height */
+  margin: 0;
 }
 
 /* Sticky Header */
@@ -32,21 +39,59 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed; /* Sticks the header to the top */
-  top: 0; /* Ensure it sticks at the top */
-  left: 0; /* Align to the left edge */
-  width: 100%; /* Ensure the header spans the full width */
-  z-index: 100; /* Ensure it's above other content */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adds shadow to separate it from the page content */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Header text and navigation styling */
-header h1 {
-  color: white;
-  margin: 0;
+/* Header content (logo and text together) */
+.header-content {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header-logo {
+  height: 50px;
+  object-fit: contain;
+  margin-right: 10px;
+}
+
+.header-text {
   font-size: 24px;
+  color: white;
+  text-decoration: none;
 }
 
+.header-text:hover {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .header-logo {
+    height: 40px;
+  }
+
+  .header-text {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    height: 35px;
+  }
+
+  .header-text {
+    font-size: 16px;
+  }
+}
+
+/* Navigation styles */
 nav ul {
   list-style-type: none;
   display: flex;
@@ -58,16 +103,14 @@ nav ul li {
   position: relative;
 }
 
-/* Bullet list dot separator for MAIN HEADER ONLY */
 nav ul li:not(:last-child)::after {
   content: '•';
   color: white;
   font-size: 16px;
-  margin: 0 20px; /* Space before and after the bullet */
-  opacity: 0.7; /* Slight transparency for the bullet */
+  margin: 0 20px;
+  opacity: 0.7;
 }
 
-/* Navigation links styling for MAIN HEADER ONLY */
 nav ul li a {
   color: white;
   text-decoration: none;
@@ -78,7 +121,6 @@ nav ul li a {
   transition: color 0.3s ease;
 }
 
-/* Cool underline animation on hover for MAIN HEADER ONLY */
 nav ul li a::before {
   content: '';
   position: absolute;
@@ -86,7 +128,7 @@ nav ul li a::before {
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #ffeb3b; /* Yellow underline */
+  background-color: #ffeb3b;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
@@ -98,14 +140,15 @@ nav ul li a:hover::before {
 }
 
 nav ul li a:hover {
-  color: #ffeb3b; /* Change text color on hover */
+  color: #ffeb3b;
 }
 
-/* Hamburger Menu Button */
+/* Hamburger Menu */
 .hamburger {
-  display: none; /* Hidden on larger screens */
+  display: none;
   flex-direction: column;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .hamburger div {
@@ -116,97 +159,6 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-/* Remove gap between header and hamburger menu */
-.menu {
-  margin: 0; /* Remove margin */
-  padding: 0; /* Remove padding */
-}
-
-.menu.active {
-  padding-top: 0; /* Ensure there's no padding at the top */
-}
-
-.menu.active ul {
-  margin-top: 0; /* Ensure no gap */
-}
-
-/* Hamburger Menu Styles */
-.menu.active ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #004d40;
-  position: absolute;
-  top: 50px;
-  left: 0;
-  width: 100%;
-  padding: 10px 0;
-}
-
-.menu ul li {
-  margin: 5px 0; /* Reduce space between items */
-}
-
-/* Color hover for hamburger menu */
-.menu.active ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 10px 0;
-  display: block; /* Full block space for each link */
-  transition: color 0.3s ease; /* Simple color change */
-}
-
-/* Add only color hover for hamburger menu links */
-.menu.active ul li a:hover {
-  color: #ffeb3b; /* Yellow hover effect */
-}
-
-/* Remove underline and hover animation from Hamburger Menu */
-.menu.active ul li a::before {
-  content: none; /* No underline effect */
-}
-
-/* Remove bullet separator from Hamburger Menu */
-.menu.active ul li:not(:last-child)::after {
-  content: ""; /* No separator in the hamburger menu */
-}
-
-/* Show Hamburger on smaller screens */
-@media (max-width: 768px) {
-  nav ul {
-    display: none; /* Hide regular navigation links */
-  }
-
-  .hamburger {
-    display: flex; /* Make hamburger visible */
-  }
-
-  /* When the menu is active, show the links */
-  .menu.active ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #004d40;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-  }
-
-  .menu ul li {
-    margin: 5px 0; /* Further reduced space between items */
-  }
-
-  /* Remove separators for Hamburger Menu */
-  .menu.active ul li:not(:last-child)::after {
-    content: ""; /* No separator in the hamburger menu */
-  }
-}
-
-/* Animation for Hamburger Button */
 .hamburger.active div:nth-child(1) {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -219,22 +171,89 @@ nav ul li a:hover {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/* Menu container and styles */
+.menu {
+  margin: 0;
+  padding: 0;
+}
+
+.menu.active {
+  padding-top: 0;
+}
+
+.menu.active ul {
+  margin-top: 0;
+}
+
+.menu.active ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #004d40;
+  position: absolute;
+  top: 53px;
+  left: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.menu ul li {
+  margin: 15px 0;
+  text-align: center; /* Centering text in the menu */
+}
+
+/* Color hover for hamburger menu */
+.menu.active ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu.active ul li a:hover {
+  color: #ffeb3b; /* Yellow hover effect */
+}
+
+/* Remove underline and hover animation from Hamburger Menu */
+.menu.active ul li a::before {
+  content: none;
+}
+
+/* Remove bullet separator from Hamburger Menu */
+.menu.active ul li:not(:last-child)::after {
+  content: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menu.active ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* Footer Styles */
 .footer {
   background-color: #f0f0f0;
   text-align: center;
-  padding: 5px 0; /* Reduced padding for less height */
-  width: 100%; /* Full width */
+  padding: 5px 0;
+  width: 100%;
   margin-top: 40px;
 }
 
 .footer p {
-  font-size: 13px; /* Reduced font size */
+  font-size: 13px;
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px; /* Space between the icon and the text */
+  gap: 8px;
   margin: 0;
 }
 
@@ -244,11 +263,30 @@ nav ul li a:hover {
   color: #333;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.github-link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #004d40;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.github-link:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
 }
 
 .github-link:hover {
-  color: #004d40; /* Darker green on hover */
+  color: #333;
 }
 
 .github-icon {
@@ -260,19 +298,15 @@ nav ul li a:hover {
 
 .footer small {
   display: block;
-  margin-top: 8px; /* Slightly reduced margin */
-  font-size: 11px; /* Smaller font size */
+  margin-top: 8px;
+  font-size: 11px;
   color: #666;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .footer {
-    padding: 5px 0; /* Further reduced padding */
-  }
-
   .footer p {
-    font-size: 12px; /* Even smaller font size for mobile screens */
+    font-size: 12px;
   }
 
   .footer small {
